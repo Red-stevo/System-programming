@@ -6,3 +6,10 @@
     <li>Brenda Mukami</li>
     <li>Bob Mirowe</li>
   </ul>
+
+## Question 9.
+  <ul>
+    <li>Griffins Gitari</li>
+    <li>Evans Mungai</li>
+    <li>Theresa Wairimu</li>
+  </ul>
