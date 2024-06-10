@@ -11,5 +11,5 @@
   <ul>
     <li>Griffins Gitari</li>
     <li>Evans Mungai</li>
-    <li>Theresa Wairimu</li>
+    <li>Teresa Wairimu</li>
   </ul>
