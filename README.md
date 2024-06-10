@@ -1,6 +1,6 @@
 # System-programming
 
-## question 10.
+## Question 10.
   <ul>
     <li>Stephen Muiru</li>
     <li>Brenada Mukami</li>
