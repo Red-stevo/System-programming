@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 struct contact {
   char firstname[21];
@@ -17,12 +19,12 @@ int main(){
     printf("Select An Operation From The Menu.");
 
     printf("\t1. Add a new Contact.\n");
-    printf("\t2. Update a Contact.\n")
-    printf("\t3. View Contacts.\n")
-    printf("\t4. Delect a Conatct.\n")
-    printf("\tQ. Quit.\n")
+    printf("\t2. Update a Contact.\n");
+    printf("\t3. View Contacts.\n");
+    printf("\t4. Delect a Conatct.\n");
+    printf("\tQ. Quit.\n");
 
-    printf("Choice : ")
+    printf("Choice : ");
     scanf("%c", &choice);
 
     
