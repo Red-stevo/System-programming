@@ -1,4 +1,4 @@
-#include e <stdio.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +18,7 @@ struct contact usercontacts[max];
 void initializeContacts();
 void addcontact(char *firstname, char *lastname, char *phonenumber);
 void deletecontact(int index);
-void viewcontacts();
+
 
 int main() {
     char choice;
@@ -65,7 +65,6 @@ int main() {
                 break;
             case '3':
                 // View contacts.
-                viewcontacts();
                 break;
             case '4':
                 // Delete a contact.
@@ -83,7 +82,6 @@ int main() {
         }
     }
 
-    return 0;
 }
 
 // Initialize contacts to empty strings
@@ -120,3 +118,4 @@ void deletecontact(int index) {
         printf("Invalid contact index.\n");
     }
 }
+
