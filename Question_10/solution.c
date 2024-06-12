@@ -9,6 +9,13 @@ struct contact {
 };
 
 
+//function prototypes.
+char* addcontact(struct contact usercontactinfo);
+char* updatecontact(char name[21], struct contact updatedcontact);
+struct contact* viewcontacts();
+char* delectcontact(char name[21]);
+
+
 int main(){
   //create the persons array  instance of the structure we deffined.
   struct contact usercontacts[12];
@@ -16,16 +23,16 @@ int main(){
 
   while(true){
    //create the user manu.
-    printf("Select An Operation From The Menu.");
+    printf("Select An Operation From The Menu.\n");
 
     printf("\t1. Add a new Contact.\n");
     printf("\t2. Update a Contact.\n");
     printf("\t3. View Contacts.\n");
     printf("\t4. Delect a Conatct.\n");
-    printf("\tQ. Quit.\n");
+    printf("\tQ(q). Quit.\n");
 
     printf("Choice : ");
-    scanf("%c", &choice);
+    scanf(" %c", &choice);
 
     
     switch(choice){
@@ -43,20 +50,13 @@ int main(){
         break;
       case 'Q':
         //quit the application.
-        printf("Thank You For Using Our Sevices.");
+        printf("Thank You For Using Our Sevices.\n");
         exit(0);
-
-
-
-
-
-
-
-
-
-
-
-
+      case 'q':
+        printf("Thank You For Using Our Services.\n");
+        exit(0);
+      default:
+        printf("You Entered An Invalid Option.\n");
 
     }
 
