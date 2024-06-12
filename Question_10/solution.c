@@ -1,119 +1,122 @@
-#include <stdio.h>
+#include e <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
+#define max 12
+
 struct contact {
-  char firstname[21];
-  char lastname[21];
-  char phonenumber[14];
+    char firstname[21];
+    char lastname[21];
+    char phonenumber[14];
 };
 
+// Global array of contacts
+struct contact usercontacts[max];
 
-//function prototypes.
-char* addcontact(struct contact usercontactinfo);
-char* updatecontact(char name[21], struct contact updatedcontact);
-struct contact* viewcontacts();
-char* delectcontact(char name[21]);
-
+// Function prototypes
+void initializeContacts();
+void addcontact(char *firstname, char *lastname, char *phonenumber);
+void deletecontact(int index);
+void viewcontacts();
 
 int main() {
-    //create the persons array  instance of the structure we defined.
-    struct contact usercontacts[12];
     char choice;
+    int index;
+
+    // Initialize contacts to empty strings
+    initializeContacts();
 
     while (true) {
-        //create the user manu.
+        // Create the user menu
         printf("Select An Operation From The Menu.\n");
-
         printf("\t1. Add a new Contact.\n");
         printf("\t2. Update a Contact.\n");
         printf("\t3. View Contacts.\n");
-        printf("\t4. Delect a Contact.\n");
+        printf("\t4. Delete a Contact.\n");
         printf("\tQ(q). Quit.\n");
 
-        printf("Choice : ");
+        printf("Choice: ");
         scanf(" %c", &choice);
 
-
         switch (choice) {
-            case '1':
-                //creating contact list for new users
+            case '1': {
+                // Create contact list for new users
+                char firstname[21];
+                char lastname[21];
+                char phonenumber[14];
+
                 printf("Enter the firstname: ");
-                char *firstname;
-                scanf("%s", firstname);
+                scanf("%20s", firstname);
 
                 printf("Enter the lastname: ");
-                char *lastname;
-                scanf("%s", lastname);
+                scanf("%20s", lastname);
 
                 printf("Enter phone number: ");
-                char *phonenumber;
-                scanf("%s", phonenumber);
+                scanf("%13s", phonenumber);
 
-                //calling the add contacts method to save the entries
-                addcontact(firstname,lastname,phonenumber);
+                // Call the add contacts method to save the entries
+                addcontact(firstname, lastname, phonenumber);
                 break;
-
+            }
             case '2':
-                //handle contacts update.
+                // Handle contacts update.
+                printf("Update contact functionality is not implemented yet.\n");
                 break;
             case '3':
-                //view contacts.
+                // View contacts.
+                viewcontacts();
                 break;
             case '4':
-                //delete a contact.
+                // Delete a contact.
                 printf("Enter the index to be deleted: ");
-                scanf("%d",&index);
-                delectcontact(index);
+                scanf("%d", &index);
+                deletecontact(index);  // Adjust for 0-based index
                 break;
-
             case 'Q':
-                //quit the application.
-                printf("Thank You For Using Our Sevices.\n\n");
-                exit(0);
             case 'q':
+                // Quit the application.
                 printf("Thank You For Using Our Services.\n\n");
                 exit(0);
             default:
                 printf("\t\tYou Entered An Invalid Option!!\n\n");
-
-        }
-    }
-    //first lets set the entries of the contacts to empty strings
-    void initializeContacts() {
-        for (int i = 0, i<usercontacts.length(), i++) {
-            strcpy(usercontacts[i].firstname, "");
-            strcpy(usercontacts[i].lastname, "");
-            strcpy(usercontacts[i].phonenumber, "");
         }
     }
 
-    //lets now add the 12 contacts
-    void addcontact(char *firstname,char *lastname,char *phonenumber){
-        for(int i = 0,i<usercontacts.length(), i++){
-            if(strcmp(usercontacts[i].firstname, "") == 0){
-                strcpy(usercontacts[i].firstname, firstname);
-                strcpy(usercontacts[i].lastname, lastname);
-                strcpy(usercontacts[i].phonenumber, phonenumber);
-                printf("Contact added successfully.\n");
-            }
-        } else {
-            printf("Contact list is full.\n");
+    return 0;
+}
+
+// Initialize contacts to empty strings
+void initializeContacts() {
+    for (int i = 0; i < max; i++) {
+        strcpy(usercontacts[i].firstname, "");
+        strcpy(usercontacts[i].lastname, "");
+        strcpy(usercontacts[i].phonenumber, "");
+    }
+}
+
+// Add a new contact
+void addcontact(char *firstname, char *lastname, char *phonenumber) {
+    for (int i = 0; i < max; i++) {
+        if (strcmp(usercontacts[i].firstname, "") == 0) {
+            strcpy(usercontacts[i].firstname, firstname);
+            strcpy(usercontacts[i].lastname, lastname);
+            strcpy(usercontacts[i].phonenumber, phonenumber);
+            printf("Contact added successfully.\n");
+            return;
         }
     }
+    printf("Contact list is full.\n");
+}
 
-     //method for deleting the contacts
-    void deletecontact(int index) {
-        if (index >= 0 && index < usercontacts.length() && strcmp(usercontacts[index].firstname, "") != 0) {
-            strcpy(usercontacts[index].firstname, "");
-            strcpy(usercontacts[index].lastname, "");
-            strcpy(usercontacts[index].phonenumber, "");
-            printf("Contact deleted successfully.\n");
-        } else {
-            printf("Invalid contact index.\n");
-        }
+// Delete a contact by index
+void deletecontact(int index) {
+    if (index >= 0 && index < max && strcmp(usercontacts[index].firstname, "") != 0) {
+        strcpy(usercontacts[index].firstname, "");
+        strcpy(usercontacts[index].lastname, "");
+        strcpy(usercontacts[index].phonenumber, "");
+        printf("Contact deleted successfully.\n");
+    } else {
+        printf("Invalid contact index.\n");
     }
-
-
 }
