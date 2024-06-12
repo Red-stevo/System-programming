@@ -28,7 +28,7 @@ int main(){
     printf("\t1. Add a new Contact.\n");
     printf("\t2. Update a Contact.\n");
     printf("\t3. View Contacts.\n");
-    printf("\t4. Delect a Conatct.\n");
+    printf("\t4. Delect a Contact.\n");
     printf("\tQ(q). Quit.\n");
 
     printf("Choice : ");
