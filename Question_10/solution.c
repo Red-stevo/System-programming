@@ -50,13 +50,13 @@ int main(){
         break;
       case 'Q':
         //quit the application.
-        printf("Thank You For Using Our Sevices.\n");
+        printf("Thank You For Using Our Sevices.\n\n");
         exit(0);
       case 'q':
-        printf("Thank You For Using Our Services.\n");
+        printf("Thank You For Using Our Services.\n\n");
         exit(0);
       default:
-        printf("You Entered An Invalid Option.\n");
+        printf("\t\tYou Entered An Invalid Option!!\n\n");
 
     }
 
