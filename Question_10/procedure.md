@@ -13,7 +13,6 @@ Subproblems:
         Implement functionality to display all current contact information.
   
 
-
 Implementation Order and Testing:
 
     1.Add a Person
@@ -30,7 +29,7 @@ Implementation Order and Testing:
         
     4.Display All Contacts
         Implementation: Write a function to display all contacts.
-        Testing: Add, delete, and update contacts, then use the display function to verify the current state of the contact list.
+        Testing: Add, delete, and update contacts then display the list to make sure any changes have been implemented.
 
 
 Testing Process:
@@ -48,4 +47,4 @@ Testing Process:
         Update existing contacts and verify the changes.
        
     5.Displaying Contacts
-        Add, update, and delete contacts, then display the list to make sure any changes have been implemented.
+        Add, update, and delete contacts then display the list to make sure any changes have been implemented.
