@@ -18,7 +18,8 @@ struct contact usercontacts[max];
 void initializeContacts();
 void addcontact(char *firstname, char *lastname, char *phonenumber);
 void deletecontact(int index);
-
+void updatecontact(char *firstname, char *lastname, char *phonenumber, char *oldfirstname);
+void viewcontacts();
 
 int main() {
     char choice;
@@ -59,18 +60,35 @@ int main() {
                 addcontact(firstname, lastname, phonenumber);
                 break;
             }
-            case '2':
+            case '2': {
                 // Handle contacts update.
-                printf("Update contact functionality is not implemented yet.\n");
+                char firstname[21];
+                char lastname[21];
+                char phonenumber[14];
+                char oldfirstname[21];
+
+                printf("Enter the current firstname of the contact to update: ");
+                scanf("%20s", oldfirstname);
+
+                printf("Enter the new firstname: ");
+                scanf("%20s", firstname);
+                printf("Enter the new lastname: ");
+                scanf("%20s", lastname);
+                printf("Enter the new phone number: ");
+                scanf("%13s", phonenumber);
+
+                updatecontact(firstname, lastname, phonenumber, oldfirstname);
                 break;
+            }
             case '3':
                 // View contacts.
+                viewcontacts();
                 break;
             case '4':
                 // Delete a contact.
-                printf("Enter the index to be deleted: ");
+                printf("Enter the index to be deleted (1 to %d): ", max);
                 scanf("%d", &index);
-                deletecontact(index);  // Adjust for 0-based index
+                deletecontact(index - 1);  // Adjust for 0-based index
                 break;
             case 'Q':
             case 'q':
@@ -82,6 +100,7 @@ int main() {
         }
     }
 
+    return 0;
 }
 
 // Initialize contacts to empty strings
@@ -107,6 +126,37 @@ void addcontact(char *firstname, char *lastname, char *phonenumber) {
     printf("Contact list is full.\n");
 }
 
+void updatecontact(char *firstname, char *lastname, char *phonenumber, char *oldfirstname) {
+    for (int i = 0; i < max; i++) {
+        if (strcmp(usercontacts[i].firstname, oldfirstname) == 0) {
+            strcpy(usercontacts[i].firstname, firstname);
+            strcpy(usercontacts[i].lastname, lastname);
+            strcpy(usercontacts[i].phonenumber, phonenumber);
+            printf("Contact updated successfully.\n");
+            return;
+        }
+    }
+    printf("Contact not found.\n");
+}
+
+// View the contact details
+void viewcontacts() {
+    bool empty = true;
+    for (int i = 0; i < max; i++) {
+        if (strcmp(usercontacts[i].firstname, "") != 0) {
+            printf("Contact %d:\n", i + 1);
+            printf("First Name: %s\n", usercontacts[i].firstname);
+            printf("Last Name: %s\n", usercontacts[i].lastname);
+            printf("Phone Number: %s\n", usercontacts[i].phonenumber);
+            printf("\n");
+            empty = false;
+        }
+    }
+    if (empty) {
+        printf("No contacts available.\n");
+    }
+}
+
 // Delete a contact by index
 void deletecontact(int index) {
     if (index >= 0 && index < max && strcmp(usercontacts[index].firstname, "") != 0) {
@@ -118,4 +168,3 @@ void deletecontact(int index) {
         printf("Invalid contact index.\n");
     }
 }
-
