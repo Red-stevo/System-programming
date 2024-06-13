@@ -1,4 +1,7 @@
-Subproblems
+Subproblems:
+
+    1.Add a Person
+        Functionality to add a new person to the contact list.
 
     2.Delete a Person
         Functionality to delete a person from the contact list by specifying the index.
@@ -12,6 +15,7 @@ Subproblems
 
 
 Implementation Order and Testing:
+
     1.Add a Person
         Implementation: Write a function to add a contact to the list.
         Testing: Add contacts to the list, including the limit 0f only 12 contacts.
@@ -30,6 +34,7 @@ Implementation Order and Testing:
 
 
 Testing Process:
+
     1.Initialization
         Ensure the contact list initializes correctly.
 
