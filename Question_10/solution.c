@@ -20,6 +20,7 @@ void addcontact(char *firstname, char *lastname, char *phonenumber);
 void deletecontact(int index);
 
 
+
 int main() {
     char choice;
     int index;
@@ -61,10 +62,12 @@ int main() {
             }
             case '2':
                 // Handle contacts update.
-                printf("Update contact functionality is not implemented yet.\n");
+                printf("Update your contact details.\n");
                 break;
             case '3':
                 // View contacts.
+                printf("contact details");
+
                 break;
             case '4':
                 // Delete a contact.
@@ -105,6 +108,18 @@ void addcontact(char *firstname, char *lastname, char *phonenumber) {
         }
     }
     printf("Contact list is full.\n");
+}
+void updatecontact(char *firstname, char *lastname, char *phonenumber, char *oldfirstname) {
+    for (int i = 0; i < max; i++) {
+        if (strcmp(usercontacts[i].firstname, oldfirstname) == 0) {
+            strcpy(usercontacts[i].firstname, firstname);
+            strcpy(usercontacts[i].lastname, lastname);
+            strcpy(usercontacts[i].phonenumber, phonenumber);
+            printf("Contact updated successfully.\n");
+            return;
+        }
+    }
+    printf("Contact not found.\n");
 }
 
 // Delete a contact by index
