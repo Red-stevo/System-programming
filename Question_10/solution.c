@@ -122,6 +122,21 @@ void updatecontact(char *firstname, char *lastname, char *phonenumber, char *old
     printf("Contact not found.\n");
 }
 
+//view the contact details
+void viewcontacts() {
+    if (max == 0) {
+        printf("No contacts available.\n");
+        return;
+    }
+
+    for (int i = 0; i < max; i++) {
+        printf("Contact %d:\n", i + 1);
+        printf("First Name: %s\n", usercontacts[i].firstname);
+        printf("Last Name: %s\n", usercontacts[i].lastname);
+        printf("Phone Number: %s\n", usercontacts[i].phonenumber);
+        printf("\n");
+    }
+}
 // Delete a contact by index
 void deletecontact(int index) {
     if (index >= 0 && index < max && strcmp(usercontacts[index].firstname, "") != 0) {
