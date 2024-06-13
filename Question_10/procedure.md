@@ -1,6 +1,4 @@
-Subproblems:
-    1.Add a Person
-        Functionality to add a new person to the contact list ensuring the list does not exceed 12 contacts.
+Subproblems
 
     2.Delete a Person
         Functionality to delete a person from the contact list by specifying the index.
