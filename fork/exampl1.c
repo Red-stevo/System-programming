@@ -3,12 +3,10 @@
 
 int main() 
 { 
-    // Creating first child 
+    
     int n1 = fork(); 
 
-    // Creating second child. First child 
-    // also executes this line and creates 
-    // grandchild. 
+    
     int n2 = fork(); 
 
     if (n1 > 0 && n2 > 0) { 
