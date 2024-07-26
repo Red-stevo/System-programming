@@ -1,11 +1,11 @@
 #!/bin/bash
 # This script creates a directory, moves into it, and writes user-provided text to a file within that directory.
 
-# Prompt the user to enter the name of the directory to create
+# Prompt the user to enter the name of the directory to create from the keyboard
 echo "Enter the directory to create:"
 read dir
 
-# Inform the user that the directory is being created
+# Inform the user that the directory is being created from the keyboard
 echo "Creating a directory named $dir..."
 # Create the directory with the specified name
 mkdir $dir
